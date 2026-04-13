@@ -7,7 +7,9 @@ import jakarta.ws.rs.core.MediaType;
 public class Solicitud {
     @POST
     @Path("Solicitar")
-    public String getSolicitudUsuario(@QueryParam("nombreUsuario") String usr) {
-        return "Prueba solicitudes: " + usr;
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
+    public String postSolicitudSolicitar(@QueryParam("nombreUsuario") String usr) {
+        return "Solicitudes test: " + usr;
     }
 }

@@ -18,6 +18,11 @@ public class Board
         this.positions[x][y] = c;
     }
 
+    public void removeCell( int x, int y)
+    {
+        this.positions[x][y] = null;
+    }
+
     @Override
     public String toString()
     {

@@ -18,7 +18,7 @@ public class Solicitud {
     @Path("Solicitar")
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public String postSolicitudSolicitar(@QueryParam("nombreUsuario") String usr) {
+    public String postSolicitudSolicitar(@QueryParam("nombreUsuario") String usr, String jsonBody) {
         return "Solicitudes test: " + usr;
     }
 }

@@ -11,5 +11,7 @@ public class Solicitud {
     @Produces(MediaType.APPLICATION_JSON)
     public String postSolicitudSolicitar(@QueryParam("nombreUsuario") String usr) {
         return "Solicitudes test: " + usr;
+
     }
+
 }

@@ -1,4 +1,4 @@
-package ModeloDominio;
+package model;
 
 public class ImmobileCell extends Cell
 {

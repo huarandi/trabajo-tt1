@@ -1,4 +1,4 @@
-package servidor;
+package server;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;

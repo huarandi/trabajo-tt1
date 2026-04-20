@@ -15,7 +15,7 @@ public class Resultados {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String getResultados(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) {
+    public String getResultados(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok, String jsonBody) {
         return  "Ressultados test: " + usr + "," + tok;
     }
 }

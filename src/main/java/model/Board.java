@@ -6,7 +6,7 @@ public class Board
     private int xMax;
     private int yMax;
 
-    public Board(int x, int y, int t)
+    public Board(int x, int y)
     {
         this.positions = new Cell[x][y];
         this.xMax = x;
@@ -21,6 +21,11 @@ public class Board
     public void removeCell( int x, int y)
     {
         this.positions[x][y] = null;
+    }
+
+    public Cell getCell(int x, int y)
+    {
+        return this.positions[x][y];
     }
 
     @Override

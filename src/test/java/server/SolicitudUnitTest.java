@@ -9,7 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import server.mock.RequestManagerMock;
 
-public class SolicitudTest {
+public class SolicitudUnitTest {
 
     private Solicitud solicitud;
 

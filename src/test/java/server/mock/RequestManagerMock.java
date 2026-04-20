@@ -1,5 +1,6 @@
 package server.mock;
 
+import model.Board;
 import model.Game;
 import server.RequestData;
 import server.RequestManager;
@@ -23,6 +24,15 @@ public class RequestManagerMock implements RequestManager {
 
     @Override
     public Game getResults(int token) {
-        return null;
+        Game g;
+        if(token == 0){
+            g = new Game(0);
+        }
+        else if(token == 1){
+            g = new Game(1);
+            Board b1 = new Board(2, 2);
+        }
+
+        return g;
     }
 }

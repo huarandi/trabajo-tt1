@@ -8,6 +8,7 @@ public class Simulator implements InterfaceSimulator
 {
     private Random r;
 
+    public Simulator(){}
     public Simulator(Random r)
     {
         this.r=r;

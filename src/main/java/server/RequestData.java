@@ -10,10 +10,8 @@ import java.util.Map;
 public class RequestData {
     private Map<String,Integer>  cells=new HashMap<String,Integer>();
 
-    RequestData(String immobileCell, int numImm, String mobileCell, int numMobile, String reproductiveCell, int numRepro){
-        cells.put(immobileCell,numImm);
-        cells.put(mobileCell,numMobile);
-        cells.put(reproductiveCell,numRepro);
+    RequestData(Map<String,Integer> cellsData){
+        this.cells=cellsData;
     }
 
     public Map<String, Integer> getCells() {

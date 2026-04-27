@@ -24,12 +24,12 @@ public class RequestManagerMock implements RequestManager {
 
     @Override
     public Game getResults(int token) {
-        Game g;
+        Game g = null;
         if(token == 0){
             g = new Game(0);
         }
         else if(token == 1){
-            g = new Game(1);
+            g= new Game(1);
             Board b1 = new Board(2, 2);
         }
 

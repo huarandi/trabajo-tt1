@@ -26,4 +26,9 @@ public class BoardChange
     {
         return this.cell;
     }
+
+    public boolean equals(BoardChange bc)
+    {
+        return this.x == bc.x && this.y == bc.y && this.cell.equals(bc.cell);
+    }
 }

@@ -7,6 +7,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class TestSimIteratorReproductive
@@ -26,13 +27,24 @@ public class TestSimIteratorReproductive
     @Test
     public void postIterativeReproductive()
     {
-        /*
-        List<BoardChange> l = this.simIterator.IterativeReproductive(this.rc);
-
         BoardChange bc0 = new BoardChange(0,0, this.rc);
+        BoardChange bc1 = new BoardChange(-1,0,this.rc);
+        BoardChange bc2 = new BoardChange(0,-1,this.rc);
+        BoardChange bc3 = new BoardChange(1,0,this.rc);
+        BoardChange bc4 = new BoardChange(0,1,this.rc);
+        BoardChange bcNull = new BoardChange(0,0, null);
 
+        List<BoardChange> l = new ArrayList<>();
+        for(int i = 0; i < this.numberIterations; i++)
+        {
+            l.addAll(this.simIterator.IterativeReproductive(this.rc));
+        }
         Assert.assertTrue(l.contains(bc0));
-        Assert.assertTrue(3, ;
-        */
+        Assert.assertFalse(l.contains(bcNull));
+
+        boolean b = l.contains(bc1) || l.contains(bc2) || l.contains(bc3) || l.contains(bc4);
+
+        Assert.assertTrue(b);
+
     }
 }

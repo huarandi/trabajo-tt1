@@ -24,7 +24,7 @@ public class RequestManagerMock implements RequestManager {
 
     @Override
     public Game getResults(int token) {
-        Game g = null;
+        Game g = new Game(0);
         if(token == 0){
             g = new Game(0);
         }

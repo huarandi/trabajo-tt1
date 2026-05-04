@@ -44,8 +44,8 @@ public class Solicitud {
             int token=req.requestSimulation(requestData);
             Game game=req.getResults(token);
 
-            GameTokens gameTokens=new GameTokens();
-            //gameTokens.addGame(token,game);
+            GameTokens gameTokens=GameTokens.getInstance();
+            gameTokens.addGame(token,game);
 
             response.addProperty("done",true);
             response.addProperty("tokenSolicitud",token);

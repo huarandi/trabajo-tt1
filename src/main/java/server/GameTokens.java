@@ -8,10 +8,18 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class GameTokens {
 
-    private static Map<Integer, Game> table=new ConcurrentHashMap<Integer, Game>();
+    private static GameTokens gameTokens;
+    private Map<Integer, Game> table;
 
-    public GameTokens(){
+    private GameTokens(){
         table=new ConcurrentHashMap<>();
+    }
+
+    public static GameTokens getInstance(){
+        if(gameTokens==null){
+            gameTokens=new GameTokens();
+        }
+            return gameTokens;
     }
 
     public void addGame(int token, Game game){
@@ -28,13 +36,5 @@ public class GameTokens {
 
     public boolean checkGame(int token){
         return table.containsKey(token);
-    }
-
-    public static Map<Integer, Game> getTable() {
-        return table;
-    }
-
-    public static void setTable(Map<Integer, Game> table) {
-        GameTokens.table = table;
     }
 }

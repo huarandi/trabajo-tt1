@@ -14,7 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Path("/Resultados")
 public class Resultados {
     private RequestManager req;
-    private GameTokens gameTokens;
+    private final GameTokens gameTokens=GameTokens.getInstance();
 
     @Inject
     public Resultados(RequestManager requestManager){
@@ -23,7 +23,7 @@ public class Resultados {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String getResultados(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) {
+    public String getResults(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) {
 
         JsonObject response=new JsonObject();
         Map<String,Integer> data=new ConcurrentHashMap<String,Integer>();
@@ -39,7 +39,7 @@ public class Resultados {
 
         }else{
             response.addProperty("done",false);
-            response.addProperty("tokenSolicitud","400");
+            response.addProperty("tokenSolicitud",400);
             response.addProperty("errormessage","Error, el token no existe");
             response.addProperty("data","");
         }

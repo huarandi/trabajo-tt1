@@ -1,6 +1,5 @@
 package logic;
 
-import model.Board;
 import model.BoardChange;
 import model.ImmobileCell;
 import org.junit.Assert;
@@ -26,7 +25,7 @@ public class TestSimIteratorInmobile
     @Test
     public void postIterativeInmobile()
     {
-        List<BoardChange> l = this.simIterator.IterativeInmobile(this.ic);
+        List<BoardChange> l = this.simIterator.iterativeInmobile(this.ic);
 
         Assert.assertTrue(l.contains(this.boardChange));
         Assert.assertEquals(1, l.size());

@@ -20,7 +20,7 @@ public class SimIterator
         this.r = random;
     }
 
-    public List<BoardChange> IterativeInmobile(Cell c)
+    public List<BoardChange> iterativeInmobile(Cell c)
     {
         List<BoardChange> l = new ArrayList<BoardChange>();
         BoardChange b = new BoardChange(0,0, c);
@@ -28,7 +28,7 @@ public class SimIterator
         return l;
     }
 
-    public List<BoardChange> IterativeMobile(Cell c)
+    public List<BoardChange> iterativeMobile(Cell c)
     {
         List<BoardChange> l = new ArrayList<BoardChange>();
         BoardChange b = new BoardChange(0,0, null);
@@ -59,7 +59,7 @@ public class SimIterator
     }
 
     //Probabilidad de reproducirse 1/3
-    public List<BoardChange> IterativeReproductive(Cell c)
+    public List<BoardChange> iterativeReproductive(Cell c)
     {
 
         List<BoardChange> l = new ArrayList<BoardChange>();

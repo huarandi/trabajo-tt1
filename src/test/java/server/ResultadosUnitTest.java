@@ -27,9 +27,9 @@ public class ResultadosUnitTest {
         RequestManagerMock reqmock = new RequestManagerMock(false);
         resultado = new Resultados(reqmock);
     }
-/*
+
     @Test
-    public void postSolicitudSolicitarBadRequest(){
+    public void getResultadosBadRequest(){
         String strRes = resultado.getResultados(USER, BAD_TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
@@ -45,8 +45,8 @@ public class ResultadosUnitTest {
     }
 
     @Test
-    public void postSolicitudSolicitarGoodRequest(){
-        String strRes = resultado.postSolicitudSolicitar(USER, TOKEN);
+    public void getResultadosGoodRequest(){
+        String strRes = resultado.getResultados(USER, TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
         Assert.assertNotNull(res);
@@ -55,5 +55,4 @@ public class ResultadosUnitTest {
         Assert.assertNotNull(res.get("errormessage").getAsString());
         Assert.assertNotNull(res.get("data").getAsBoolean());
     }
-    */
 }

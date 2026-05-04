@@ -1,7 +1,6 @@
 package logic;
 
 import model.BoardChange;
-import model.ImmobileCell;
 import model.ReproductiveCell;
 import org.junit.Assert;
 import org.junit.Before;
@@ -37,7 +36,7 @@ public class TestSimIteratorReproductive
         List<BoardChange> l = new ArrayList<>();
         for(int i = 0; i < this.numberIterations; i++)
         {
-            l.addAll(this.simIterator.IterativeReproductive(this.rc));
+            l.addAll(this.simIterator.iterativeReproductive(this.rc));
         }
         Assert.assertTrue(l.contains(bc0));
         Assert.assertFalse(l.contains(bcNull));

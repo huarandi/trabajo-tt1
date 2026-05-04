@@ -39,4 +39,14 @@ public class Game
         this.boards[t] = b;
     }
 
+    public Board finalBoard()
+    {
+        return this.boards[this.tMax];
+    }
+
+    public Board[] boards()
+    {
+        return this.boards;
+    }
+
 }

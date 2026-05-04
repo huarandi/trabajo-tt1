@@ -1,7 +1,9 @@
 package logic;
 
 import model.Board;
+import model.BoardChange;
 
+import java.util.List;
 import java.util.Random;
 
 public class Simulator implements InterfaceSimulator
@@ -15,7 +17,17 @@ public class Simulator implements InterfaceSimulator
     }
 
     @Override
-    public Board simulate(Board b0) {
+    public Board simulate(Board b0)
+    {
         return null;
     }
+
+    public void addCells(List<BoardChange> l, Board b)
+    {
+        for(BoardChange bc: l)
+        {
+            b.insertCell(bc.getCell(), bc.getX(), bc.getY());
+        }
+    }
+
 }

@@ -57,6 +57,16 @@ public class Board
         return s.toString();
     }
 
+    public int getxMax()
+    {
+        return this.xMax;
+    }
+
+    public int getyMax()
+    {
+        return this.yMax;
+    }
+
 
 }
 

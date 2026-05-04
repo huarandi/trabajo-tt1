@@ -67,6 +67,11 @@ public class Board
         return this.yMax;
     }
 
+    public boolean isEmpty(int x, int y)
+    {
+        return this.positions[x][y] == null;
+    }
+
 
 }
 

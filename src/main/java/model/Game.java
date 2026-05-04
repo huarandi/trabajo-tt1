@@ -39,6 +39,11 @@ public class Game
         this.boards[t] = b;
     }
 
+    public Board getBoard(int t)
+    {
+        return this.boards[t];
+    }
+
     public Board finalBoard()
     {
         return this.boards[this.tMax];

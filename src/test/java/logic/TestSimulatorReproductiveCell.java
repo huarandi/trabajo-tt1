@@ -19,7 +19,7 @@ public class TestSimulatorReproductiveCell
     @Before
     public void before() throws Exception
     {
-        this.simulator = new Simulator();
+        this.simulator = new Simulator(new SimIterator(), new CellPrioritizer());
         this.board = new Board(3,3);
         this.rc = new ReproductiveCell();
         this.board.insertCell(rc,1,1);
@@ -34,10 +34,10 @@ public class TestSimulatorReproductiveCell
             this.board = this.simulator.simulate(this.board);
         }
 
-        boolean b = this.board.getCell(0,1).equals(this.rc) ||
-                    this.board.getCell(1,0).equals(this.rc) ||
-                    this.board.getCell(2,1).equals(this.rc) ||
-                    this.board.getCell(1,2).equals(this.rc);
+        boolean b = (this.board.getCell(0, 1) != null && this.board.getCell(0,1).equals(this.rc)) ||
+                (this.board.getCell(1,0) != null && this.board.getCell(1,0).equals(this.rc)) ||
+                (this.board.getCell(2,1) != null && this.board.getCell(2,1).equals(this.rc)) ||
+                (this.board.getCell(1,2) != null && this.board.getCell(1,2).equals(this.rc));
 
         Assert.assertEquals(this.rc, this.board.getCell(1,1));
         Assert.assertTrue(b);

@@ -16,7 +16,7 @@ public class TestSimulatorInmobileCell
     @Before
     public void before() throws Exception
     {
-        this.simulator = new Simulator();
+        this.simulator = new Simulator(new SimIterator(), new CellPrioritizer());
         this.board = new Board(3,3);
         this.ic = new ImmobileCell();
         this.board.insertCell(ic,0,0);

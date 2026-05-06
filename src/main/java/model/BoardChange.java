@@ -50,7 +50,7 @@ public class BoardChange
     public boolean equals(Object bc)
     {
         if(bc instanceof BoardChange bcc){
-            return this.x == bcc.x && this.y == bcc.y && this.cell.equals(bcc.cell);
+            return this.x == bcc.x && this.y == bcc.y && ((this.cell == null && this.cell==bcc.cell) || (this.cell != null && this.cell.equals(bcc.cell)));
         }
         return false;
     }

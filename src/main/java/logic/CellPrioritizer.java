@@ -45,6 +45,6 @@ public class CellPrioritizer {
     }
 
     public boolean hadPriority(Cell c) {
-        return actualPrio > prio.get(c.getClass()) || ;
+        return actualPrio > prio.get(c.getClass()) || this.hadPrio.contains(c);
     }
 }

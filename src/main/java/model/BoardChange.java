@@ -42,16 +42,21 @@ public class BoardChange
         return this.y;
     }
 
+    /**
+     * Método que devuelve la Cell
+     * @return Integer con la posicion de la Cell
+     */
     public Cell getCell()
     {
         return this.cell;
     }
 
-    public boolean equals(Object bc)
+    /**
+     * Método que compara si dos objetos BoardChange son iguales
+     * @return Integer con la posicion de la Cell
+     */
+    public boolean equals(BoardChange bc)
     {
-        if(bc instanceof BoardChange bcc){
-            return this.x == bcc.x && this.y == bcc.y && this.cell.equals(bcc.cell);
-        }
-        return false;
+        return this.x == bc.x && this.y == bc.y && this.cell.equals(bc.cell);
     }
 }

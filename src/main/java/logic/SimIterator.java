@@ -39,18 +39,22 @@ public class SimIterator
             case(0):
             {
                 b = new BoardChange(-1,0,c);
+                break;
             }
             case(1):
             {
                 b = new BoardChange(0,-1,c);
+                break;
             }
             case(2):
             {
                 b = new BoardChange(1,0,c);
+                break;
             }
             case(3):
             {
                 b = new BoardChange(0,1,c);
+                break;
             }
         }
         l.add(b);
@@ -75,18 +79,22 @@ public class SimIterator
                 case(0):
                 {
                     b = new BoardChange(-1,0,c);
+                    break;
                 }
                 case(1):
                 {
                     b = new BoardChange(0,-1,c);
+                    break;
                 }
                 case(2):
                 {
                     b = new BoardChange(1,0,c);
+                    break;
                 }
                 case(3):
                 {
                     b = new BoardChange(0,1,c);
+                    break;
                 }
             }
             l.add(b);

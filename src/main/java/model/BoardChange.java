@@ -13,7 +13,7 @@ public class BoardChange
     private Cell cell;
 
     /**
-     * Método que genera el los cambios en el tablero de la simulaicon en un instante
+     * Constructor de la clase que genera los cambios en el tablero de la simulaicon en un instante
      * @param x numero de filas que tendra el tablero de la simulacion
      * @param y numero de columnas que tendra el tablero de la simulacion
      */
@@ -42,11 +42,19 @@ public class BoardChange
         return this.y;
     }
 
+    /**
+     * Método que devuelve la fila de la Cell en el tablero
+     * @return Integer con la posicion de la Cell
+     */
     public Cell getCell()
     {
         return this.cell;
     }
 
+    /**
+     * Método que compara dos objetos para comprobar si son de esta clase
+     * @param bc  Objeto con el que comparar el objeto llamado por el metodo
+     */
     public boolean equals(Object bc)
     {
         if(bc instanceof BoardChange bcc){

@@ -12,7 +12,7 @@ public class Board
     private int yMax;
 
     /**
-     * Método que genera el tablero de la simulaicon en un instante
+     * Constructor que genera el tablero de la simulaicon en un instante
      * @param x numero de filas que tendra el tablero de la simulacion
      * @param y numero de columnas que tendra el tablero de la simulacion
      */

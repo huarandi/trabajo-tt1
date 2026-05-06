@@ -1,5 +1,7 @@
 package server;
 
+import logic.CellPrioritizer;
+import logic.SimIterator;
 import logic.Simulator;
 import model.*;
 
@@ -82,20 +84,22 @@ public class ThreadGame extends Thread
         //Creacion del juego, 50 instantes
 
         int numInstantsGame = 50;
-        Game game = new Game(board, numInstantsGame);
+        this.game = new Game(board, numInstantsGame);
         Board b0;
         Board b1;
 
-        Simulator simulator = new Simulator();
+        SimIterator simIterator = new SimIterator();
+        CellPrioritizer cellPrioritizer = new CellPrioritizer();
+        Simulator simulator = new Simulator(simIterator, cellPrioritizer);
 
 
         for(int ti = 0; ti < numInstantsGame; ti++)
         {
-            b0 = game.getBoard(ti);
+            b0 = this.game.getBoard(ti);
             b1 = simulator.simulate(b0);
             if(ti + 1 < numInstantsGame)
             {
-                game.addBoard(b1, ti+1);
+                this.game.addBoard(b1, ti+1);
             }
         }
     }
@@ -105,7 +109,8 @@ public class ThreadGame extends Thread
         return game;
     }
 
-    public int getToken() {
+    public int getToken()
+    {
         return token;
     }
 }

@@ -34,14 +34,10 @@ public class ResultadosUnitTest {
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
         Assert.assertNotNull(res);
-        Assert.assertNotNull(res.get("type").getAsString());
-        Assert.assertNotNull(res.get("title").getAsString());
-        Assert.assertNotNull(res.get("status").getAsInt());
-        Assert.assertNotNull(res.get("detail").getAsString());
-        Assert.assertNotNull(res.get("instance").getAsString());
-        Assert.assertNotNull(res.get("additionalProp1").getAsString());
-        Assert.assertNotNull(res.get("additionalProp2").getAsString());
-        Assert.assertNotNull(res.get("additionalProp3").getAsString());
+        Assert.assertNotNull(res.get("done").getAsBoolean());
+        Assert.assertNotNull(res.get("tokenSolicitud").getAsInt());
+        Assert.assertNotNull(res.get("errormessage").getAsString());
+        Assert.assertNotNull(res.get("data").getAsBoolean());
     }
 
     @Test

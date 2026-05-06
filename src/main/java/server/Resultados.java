@@ -14,6 +14,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Path("/Resultados")
 public class Resultados {
     private RequestManager req;
+    private final GameTokens gameTokens=GameTokens.getInstance();
 
     @Inject
     public Resultados(RequestManager requestManager){
@@ -26,9 +27,9 @@ public class Resultados {
 
         JsonObject response=new JsonObject();
         Map<String,Integer> data=new ConcurrentHashMap<String,Integer>();
-        if(req.hasEnded(tok)){
+        if(gameTokens.checkGame(tok)){
 
-            Game game=req.getResults(tok);
+            Game game=gameTokens.getGame(tok);
 
             response.addProperty("done",true);
             response.addProperty("tokenSolicitud",tok);

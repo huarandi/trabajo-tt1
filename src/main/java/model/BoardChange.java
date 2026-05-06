@@ -47,11 +47,8 @@ public class BoardChange
         return this.cell;
     }
 
-    public boolean equals(Object bc)
+    public boolean equals(BoardChange bc)
     {
-        if(bc instanceof BoardChange bcc){
-            return this.x == bcc.x && this.y == bcc.y && this.cell.equals(bcc.cell);
-        }
-        return false;
+        return this.x == bc.x && this.y == bc.y && this.cell.equals(bc.cell);
     }
 }

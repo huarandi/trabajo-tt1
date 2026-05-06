@@ -62,7 +62,7 @@ public class Simulator implements InterfaceSimulator
     {
             int x = originalPosition[0] + bc.getX();
             int y = originalPosition[1] + bc.getY();
-            if(x > b.getxMax() || y > b.getyMax()) return false;
+            if(x >= b.getxMax() || y >= b.getyMax()) return false;
             if(b.getCell(x, y) != null && pri.hadPriority(b.getCell(x, y))) return false;
             b.insertCell(bc.getCell(), x, y);
             return true;

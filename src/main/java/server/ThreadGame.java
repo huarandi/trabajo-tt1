@@ -1,27 +1,28 @@
 package server;
 
+import logic.CellPrioritizer;
+import logic.SimIterator;
 import logic.Simulator;
 import model.*;
 
 import java.util.Random;
-/*
-public class ThreadGame extends Thread
+import java.util.concurrent.Callable;
+
+public class ThreadGame implements Callable<Game>
 {
     private int numInmobil;
     private int numMobil;
     private int numReproductive;
     private Game game;
-    private int token;
 
-    public ThreadGame(RequestData requestData, int t)
+    public ThreadGame(RequestData requestData)
     {
         this.numInmobil=requestData.getCells().get("static");
         this.numMobil=requestData.getCells().get("dynamic");
         this.numReproductive=requestData.getCells().get("reproductive");
-        this.token = t;
     }
 
-    public void run()
+    public Game call()
     {
         Random random=new Random();
         int tmax=this.numInmobil+this.numReproductive+this.numMobil;
@@ -82,31 +83,25 @@ public class ThreadGame extends Thread
         //Creacion del juego, 50 instantes
 
         int numInstantsGame = 50;
-        Game game = new Game(board, numInstantsGame);
+        this.game = new Game(board, numInstantsGame);
         Board b0;
         Board b1;
 
-        Simulator simulator = new Simulator();
+        SimIterator simIterator = new SimIterator();
+        CellPrioritizer cellPrioritizer = new CellPrioritizer();
+        Simulator simulator = new Simulator(simIterator, cellPrioritizer);
 
 
         for(int ti = 0; ti < numInstantsGame; ti++)
         {
-            b0 = game.getBoard(ti);
+            b0 = this.game.getBoard(ti);
             b1 = simulator.simulate(b0);
             if(ti + 1 < numInstantsGame)
             {
-                game.addBoard(b1, ti+1);
+                this.game.addBoard(b1, ti+1);
             }
         }
-    }
 
-    public Game getGame()
-    {
-        return game;
-    }
-
-    public int getToken() {
-        return token;
+        return this.game;
     }
 }
-*/

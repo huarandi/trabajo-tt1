@@ -5,13 +5,17 @@ import model.ImmobileCell;
 import model.MobileCell;
 import model.ReproductiveCell;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class CellPrioritizer {
     private int firstPrio = 0;
 
     private int actualPrio;
+
+    List<Cell> hadPrio = new ArrayList<>();
 
     private Map<Class<?>, Integer> prio = new HashMap<>();
 
@@ -33,6 +37,7 @@ public class CellPrioritizer {
 
     public void start() {
         this.actualPrio = firstPrio-1;
+        this.hadPrio.clear();
     }
 
     public boolean hasPriority(Cell c){
@@ -40,6 +45,6 @@ public class CellPrioritizer {
     }
 
     public boolean hadPriority(Cell c) {
-        return actualPrio > prio.get(c.getClass());
+        return actualPrio > prio.get(c.getClass()) || ;
     }
 }

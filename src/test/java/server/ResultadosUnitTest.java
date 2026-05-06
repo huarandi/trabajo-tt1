@@ -30,7 +30,7 @@ public class ResultadosUnitTest {
 
     @Test
     public void getResultadosBadRequest(){
-        String strRes = resultado.getResultados(USER, BAD_TOKEN);
+        String strRes = resultado.getResults(USER, BAD_TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
         Assert.assertNotNull(res);
@@ -46,7 +46,7 @@ public class ResultadosUnitTest {
 
     @Test
     public void getResultadosGoodRequest(){
-        String strRes = resultado.getResultados(USER, TOKEN);
+        String strRes = resultado.getResults(USER, TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
         Assert.assertNotNull(res);

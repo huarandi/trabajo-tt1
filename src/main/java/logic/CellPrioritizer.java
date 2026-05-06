@@ -15,7 +15,7 @@ public class CellPrioritizer {
 
     private int actualPrio;
 
-    List<Cell> hadPrio = new ArrayList<>();
+    private List<Cell> hadPrio = new ArrayList<>();
 
     private Map<Class<?>, Integer> prio = new HashMap<>();
 
@@ -42,6 +42,11 @@ public class CellPrioritizer {
 
     public boolean hasPriority(Cell c){
         return prio.get(c.getClass()) == actualPrio;
+    }
+
+    //PRE: Tiene que comprobrar primero si tiene prioridad para llamar a este.
+    public void consumePriority(Cell c){
+        this.hadPrio.add(c);
     }
 
     public boolean hadPriority(Cell c) {

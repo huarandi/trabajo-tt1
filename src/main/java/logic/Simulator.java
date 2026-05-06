@@ -25,12 +25,14 @@ public class Simulator implements InterfaceSimulator
             for(int i = 0; i < b0.getxMax();  i++){
                 for(int j = 0; j < b0.getyMax(); j++){
                     Cell c = b0.getCell(i, j);
-                    if(c != null && pri.hasPriority(c)){
+                    if(c != null && (pri.hasPriority(c) && !pri.hadPriority(c))){
+
                         List<BoardChange> chs =  c.iterate(this.it);
                         int[] pos = positionOf(c, b0);
                         Board rollback = b1;
                         for(BoardChange ch : chs){
                             boolean success = applyChange(ch, b1, pos);
+                            pri.consumePriority(c);
                             if(!success){
                                 b1 = rollback;
                                 break;

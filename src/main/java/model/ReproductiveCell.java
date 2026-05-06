@@ -9,7 +9,7 @@ public class ReproductiveCell extends Cell
     @Override
     public String toString()
     {
-        return "3";
+        return "030";
     }
 
     @Override

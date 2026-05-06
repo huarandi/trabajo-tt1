@@ -20,7 +20,7 @@ public class TestSimulatorMobileCell
         this.simulator = new Simulator(new SimIterator(), new CellPrioritizer());
         this.board = new Board(3,3);
         this.mc = new MobileCell();
-        this.board.insertCell(mc,0,0);
+        this.board.insertCell(mc,1,1);
     }
 
     @Test

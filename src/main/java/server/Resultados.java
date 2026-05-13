@@ -52,7 +52,7 @@ public class Resultados {
         int t = Math.max(g.getBoard(0).getxMax(),g.getBoard(0).getyMax());
         data.append(t);
         data.append("\n");
-        for(int i=0;i<=g.boards().length;i++){
+        for(int i=0;i<g.boards().length;i++){
             Board  b=g.getBoard(i);
             for(int j = 0; j < b.getyMax(); j++){
                 for(int k = 0;k < b.getxMax();k++){

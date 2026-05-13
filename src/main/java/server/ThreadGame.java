@@ -8,6 +8,11 @@ import model.*;
 import java.util.Random;
 import java.util.concurrent.Callable;
 
+/**
+ * Esta clase gestiona hilos de las peticiones de simulacion del servidor
+ * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
+ * @version: 1.0
+ */
 public class ThreadGame implements Callable<Game>
 {
     private int numInmobil;

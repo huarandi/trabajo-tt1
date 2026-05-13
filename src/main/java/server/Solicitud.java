@@ -11,16 +11,31 @@ import model.Game;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * Esta clase gestiona las peticiones de solicitud recibidas en el servidor
+ * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
+ * @version: 1.0
+ */
 @Path("/Solicitud")
 public class Solicitud {
 
     private final RequestManager req;
 
+    /**
+     * Constructor de la clase que inyecta el gestor de peticiones
+     * @param requestManager Objeto que define el gestor de peticiones
+     */
     @Inject
     public Solicitud(RequestManager requestManager){
         req = requestManager;
     }
 
+    /**
+     * Metodo que gestiona la peticion
+     * @param usr Nombre de usuario
+     * @param jsonBody String en formato json que contiene los datos iniciales de la simulacion
+     * @return Devuelve un string con la simulacion y el token identificativo de la misma
+     */
     @POST
     @Path("Solicitar")
     @Consumes(MediaType.APPLICATION_JSON)

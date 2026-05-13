@@ -32,6 +32,10 @@ public class ImmobileCell extends Cell
         return it.iterativeInmobile(this);
     }
 
+    /**
+     * Metodo que devuelve el color de la celula
+     * @return Devuelve un string con el color de la celula
+     */
     @Override
     public String getColor() {
         return "red";

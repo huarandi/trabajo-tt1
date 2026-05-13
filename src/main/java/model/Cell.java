@@ -24,6 +24,9 @@ public abstract class Cell
      */
     public abstract List<BoardChange> iterate(SimIterator it);
 
-
+    /**
+     * Metodo que devuelve el color de la celula
+     * @return Devuelve un string con el color de la celula
+     */
     public abstract String getColor();
 }

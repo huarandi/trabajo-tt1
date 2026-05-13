@@ -13,16 +13,31 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutionException;
 
+/**
+ * Esta clase gestiona las peticiones de resultado recibidas en el servidor
+ * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
+ * @version: 1.0
+ */
 @Path("/Resultados")
 public class Resultados {
     private RequestManager req;
     private final GameTokens gameTokens=GameTokens.getInstance();
 
+    /**
+     * Constructor de la clase que inyecta el gestor de peticiones
+     * @param requestManager Objeto que define el gestor de peticiones
+     */
     @Inject
     public Resultados(RequestManager requestManager){
         req = requestManager;
     }
 
+    /**
+     * Metodo que gestiona la peticion
+     * @param usr Nombre de usuario
+     * @param tok Identificador unico de cada simulacion
+     * @return Devuelve un string con la simulacion del almacen asociada al token pasado como parametro
+     */
     @POST
     @Produces(MediaType.APPLICATION_JSON)
     public String getResults(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) throws ExecutionException, InterruptedException {
@@ -47,6 +62,10 @@ public class Resultados {
         return response.toString();
     }
 
+    /**
+     * Metodo que construye el string con la simulacion completa para devolverlo en la peticion
+     * @param g Simulacion a pasar a string
+     */
     private String buildDataString(Game g) {
         StringBuilder data=new StringBuilder();
         int t = Math.max(g.getBoard(0).getxMax(),g.getBoard(0).getyMax());

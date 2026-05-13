@@ -16,4 +16,9 @@ public class ImmobileCell extends Cell
     public List<BoardChange> iterate(SimIterator it) {
         return it.iterativeInmobile(this);
     }
+
+    @Override
+    public String getColor() {
+        return "red";
+    }
 }

@@ -17,4 +17,9 @@ public class ReproductiveCell extends Cell
         return it.iterativeReproductive(this);
     }
 
+    @Override
+    public String getColor()
+    {
+        return "blue";
+    }
 }

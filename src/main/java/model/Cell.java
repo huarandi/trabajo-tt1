@@ -23,4 +23,6 @@ public abstract class Cell
      * @return Devuelve
      */
     public abstract List<BoardChange> iterate(SimIterator it);
+
+    public abstract String getColor();
 }

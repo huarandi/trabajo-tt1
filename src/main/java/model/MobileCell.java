@@ -16,4 +16,10 @@ public class MobileCell extends Cell
     public List<BoardChange> iterate(SimIterator it) {
         return it.iterativeMobile(this);
     }
+
+    @Override
+    public String getColor()
+    {
+        return "yellow";
+    }
 }

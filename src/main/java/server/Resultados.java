@@ -6,6 +6,7 @@ import com.google.gson.JsonParser;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
+import model.Board;
 import model.Game;
 
 import java.util.Map;
@@ -34,7 +35,7 @@ public class Resultados {
             response.addProperty("done",true);
             response.addProperty("tokenSolicitud",tok);
             response.addProperty("errormessage","");
-            response.addProperty("data",game.toString());
+            response.addProperty("data",buildDataString(game));
 
 
         }else{
@@ -44,5 +45,24 @@ public class Resultados {
             response.addProperty("data","");
         }
         return response.toString();
+    }
+
+    private String buildDataString(Game g) {
+        StringBuilder data=new StringBuilder();
+        int t = Math.max(g.getBoard(0).getxMax(),g.getBoard(0).getyMax());
+        data.append(t);
+        data.append("\n");
+        for(int i=0;i<=g.boards().length;i++){
+            Board  b=g.getBoard(i);
+            for(int j = 0; j < b.getyMax(); j++){
+                for(int k = 0;k < b.getxMax();k++){
+                    if(b.getCell(k,j)!=null){
+                        data.append(String.format("%d,%d,%d,%s", i, j, k, b.getCell(k,j).getColor()));
+                        data.append("\n");
+                    }
+                }
+            }
+        }
+        return  data.toString();
     }
 }

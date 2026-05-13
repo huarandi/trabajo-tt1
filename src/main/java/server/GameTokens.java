@@ -31,6 +31,10 @@ public class GameTokens {
         return table.get(token);
     }
 
+    public boolean hasGame(int token){
+        return table.containsKey(token);
+    }
+
     public void removeGame(int token){
         table.remove(token);
     }

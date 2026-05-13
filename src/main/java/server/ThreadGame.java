@@ -15,6 +15,10 @@ public class ThreadGame implements Callable<Game>
     private int numReproductive;
     private Game game;
 
+    /**
+     * Constructor de la clase que genera el numero de celulas de cada tipo a partir de requestData
+     * @Param requestData Informacion sobre la peticion a simular
+     */
     public ThreadGame(RequestData requestData)
     {
         this.numInmobil=requestData.getCells().get("static");
@@ -22,6 +26,10 @@ public class ThreadGame implements Callable<Game>
         this.numReproductive=requestData.getCells().get("reproductive");
     }
 
+    /**
+     * Metodo call del hilo, crea el primer board de forma aleatoria a partir del numero de celulas de cada tipo y despues simula 50 instantes a partir de este y los guarda en game
+     * @return devuelve el game con la simulacion
+     */
     public Game call()
     {
         Random random=new Random();

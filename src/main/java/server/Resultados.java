@@ -27,9 +27,8 @@ public class Resultados {
 
         JsonObject response=new JsonObject();
         Map<String,Integer> data=new ConcurrentHashMap<String,Integer>();
-        if(gameTokens.checkGame(tok)){
-
-            Game game=gameTokens.getGame(tok);
+        if(req.hasEnded(tok)){
+            Game game = req.getResults(tok);
 
             response.addProperty("done",true);
             response.addProperty("tokenSolicitud",tok);

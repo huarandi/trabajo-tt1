@@ -42,15 +42,11 @@ public class Solicitud {
             RequestData requestData=new RequestData(data);
 
             int token=req.requestSimulation(requestData);
-            Game game=req.getResults(token);
-
-            GameTokens gameTokens=GameTokens.getInstance();
-            gameTokens.addGame(token,game);
 
             response.addProperty("done",true);
             response.addProperty("tokenSolicitud",token);
             response.addProperty("errormessage","");
-            response.addProperty("data","game.toString()");
+            response.addProperty("data","");
 
 
         }catch (Exception e){

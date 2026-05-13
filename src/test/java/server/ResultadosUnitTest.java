@@ -9,6 +9,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import server.mock.RequestManagerMock;
 
+import java.util.concurrent.ExecutionException;
+
 public class ResultadosUnitTest {
     private Resultados resultado;
 
@@ -29,7 +31,7 @@ public class ResultadosUnitTest {
     }
 
     @Test
-    public void getResultadosBadRequest(){
+    public void getResultadosBadRequest() throws ExecutionException, InterruptedException {
         String strRes = resultado.getResults(USER, BAD_TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();
@@ -41,7 +43,7 @@ public class ResultadosUnitTest {
     }
 
     @Test
-    public void getResultadosGoodRequest(){
+    public void getResultadosGoodRequest() throws ExecutionException, InterruptedException {
         String strRes = resultado.getResults(USER, TOKEN);
 
         JsonObject res = JsonParser.parseString(strRes).getAsJsonObject();

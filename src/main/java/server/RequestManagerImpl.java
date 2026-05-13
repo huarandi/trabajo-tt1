@@ -30,7 +30,7 @@ public class RequestManagerImpl implements RequestManager{
         if(!gameTokens.hasGame(token)) return false;
         return gameTokens.getGame(token).isDone();
     }
-    
+
     public Game getResults(int token) throws ExecutionException, InterruptedException {
         if(hasEnded(token)) return gameTokens.getGame(token).get();
         return null;

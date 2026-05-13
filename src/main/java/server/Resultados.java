@@ -10,6 +10,7 @@ import model.Game;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 
 @Path("/Resultados")
 public class Resultados {
@@ -23,7 +24,7 @@ public class Resultados {
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
-    public String getResults(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) {
+    public String getResults(@QueryParam("nombreUsuario") String usr, @QueryParam("tok") int tok) throws ExecutionException, InterruptedException {
 
         JsonObject response=new JsonObject();
         Map<String,Integer> data=new ConcurrentHashMap<String,Integer>();

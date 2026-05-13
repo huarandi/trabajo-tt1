@@ -5,7 +5,7 @@ import logic.SimIterator;
 import java.util.List;
 
 /**
- * Esta clase define el objeto base de la simulacion, es decir la pieza que se movera en el tablero de la simulacion
+ * Esta clase abstracta define el objeto base de la simulacion, es decir la pieza que se movera en el tablero de la simulacion
  * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
  * @version: 1.0
  */
@@ -23,6 +23,7 @@ public abstract class Cell
      * @return Devuelve
      */
     public abstract List<BoardChange> iterate(SimIterator it);
+
 
     public abstract String getColor();
 }

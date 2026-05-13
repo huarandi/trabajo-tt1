@@ -6,20 +6,36 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * Esta clase comprueba los cambios que quiere hacer cada pieza de la simulacion en el siguiente instante
+ * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
+ * @version: 1.0
+ */
 public class SimIterator
 {
     private Random r;
 
+    /**
+     * Constructor de clase que genera el numero aleatorio
+     */
     public SimIterator()
     {
         this.r = new Random();
     }
 
+    /**
+     * Constructor de clase
+     * @param random  Numero aleatorio
+     */
     public SimIterator(Random random)
     {
         this.r = random;
     }
 
+    /**
+     * Metodo que proporicona la lista de cambios en el tablero actual que quiere hacer una celula inmovil en el siguiente instante
+     * @return Devuelve la lista de BoardChange asociados a la celula inmovil
+     */
     public List<BoardChange> iterativeInmobile(Cell c)
     {
         List<BoardChange> l = new ArrayList<BoardChange>();
@@ -28,6 +44,10 @@ public class SimIterator
         return l;
     }
 
+    /**
+     * Metodo que proporicona la lista de cambios en el tablero actual que quiere hacer una celula movil en el siguiente instante
+     * @return Devuelve la lista de BoardChange asociados a la celula movil
+     */
     public List<BoardChange> iterativeMobile(Cell c)
     {
         List<BoardChange> l = new ArrayList<BoardChange>();
@@ -62,7 +82,11 @@ public class SimIterator
         return l;
     }
 
-    //Probabilidad de reproducirse 1/3
+    /**
+     * Metodo que proporicona la lista de cambios en el tablero actual que quiere hacer una celula reproductora en el siguiente instante,
+     * la probabilidad de reproducirse 1/3
+     * @return Devuelve la lista de BoardChange asociados a la celula reproductora
+     */
     public List<BoardChange> iterativeReproductive(Cell c)
     {
 

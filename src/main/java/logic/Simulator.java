@@ -6,16 +6,29 @@ import model.Cell;
 
 import java.util.List;
 
+/**
+ * Esta clase implementa la interfaz InterfaceSimulator siendo la clase base de la ejecucion de la simulacíon
+ * @author: Hugo Arandia, Ramon Sanchez, Diego Anguas
+ * @version: 1.0
+ */
 public class Simulator implements InterfaceSimulator
 {
     private SimIterator it;
     private CellPrioritizer pri;
-
+    /**
+     * Constructor de clase
+     * @param it Objeto de la clase SimIterator que define el iterador que comprobora los cambios que haran las celulas
+     * @param pri Objeto de la clase CellPrioritizer que devuelve las prioridades de las celulas
+     */
     public Simulator(SimIterator it, CellPrioritizer pri) {
         this.it = it;
         this.pri = pri;
     }
 
+    /**
+     * Metodo el cual a partir de un tablero inicial realiza la simulacion para el siguiente tablero
+     * @param b0 Objeto de la clase SimIterator que define el iterador que comprobora los cambios que haran las celulas
+     */
     @Override
     public Board simulate(Board b0) {
         Board b1 = b0;
@@ -46,6 +59,12 @@ public class Simulator implements InterfaceSimulator
         return b1;
     }
 
+    /**
+     * Método que devuelve la posicion de una celula en el tablero
+     * @param c Celula sobre la que se quiere buscar su posicion
+     * @param b Tablero sobre el que esta situada la celula
+     * @return Devuelve un vector de int con la posicion en el tablero
+     */
     private int[] positionOf(Cell c, Board b){
         int[] pos = new int[2];
         for(int i = 0; i < b.getxMax(); i++){
@@ -60,6 +79,13 @@ public class Simulator implements InterfaceSimulator
         return pos;
     }
 
+    /**
+     * Método que aplica los cambios que quiere realizar la celula en el siguiente instante de la simulacion
+     * @param bc Cambios que quiere realizar la celula
+     * @param b Tablero actual de la simulacion
+     * @param originalPosition Posicion actual de la celula
+     * @return Devuelve verdadero si se consigue realizar el cambio y falso en caso contrario
+     */
     private boolean applyChange(BoardChange bc, Board b, int[] originalPosition)
     {
             int x = originalPosition[0] + bc.getX();

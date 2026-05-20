@@ -16,6 +16,7 @@ public class BoardChange
      * Constructor de la clase que genera los cambios en el tablero de la simulaicon en un instante
      * @param x numero de filas que tendra el tablero de la simulacion
      * @param y numero de columnas que tendra el tablero de la simulacion
+     * @param cell pieza de la simulacion que hara cambios
      */
     public BoardChange(int x, int y, Cell cell)
     {

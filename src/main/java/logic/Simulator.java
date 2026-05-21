@@ -31,7 +31,7 @@ public class Simulator implements InterfaceSimulator
      */
     @Override
     public Board simulate(Board b0) {
-        Board b1 = b0;
+        Board b1 = (Board) b0.clone();
         pri.start();
 
         while(pri.next()){
@@ -42,7 +42,7 @@ public class Simulator implements InterfaceSimulator
 
                         List<BoardChange> chs =  c.iterate(this.it);
                         int[] pos = positionOf(c, b0);
-                        Board rollback = b1;
+                        Board rollback = (Board) b1.clone();
                         for(BoardChange ch : chs){
                             boolean success = applyChange(ch, b1, pos);
                             pri.consumePriority(c);

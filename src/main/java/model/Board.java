@@ -115,6 +115,15 @@ public class Board
         return this.positions[x][y] == null;
     }
 
-
+    @Override
+    public Object clone() {
+        Board b = new Board(this.xMax, this.yMax);
+        for(int x = 0; x < this.xMax; x++){
+            for(int y = 0; y < this.yMax; y++){
+                b.insertCell(this.getCell(x, y), x, y);
+            }
+        }
+        return b;
+    }
 }
 

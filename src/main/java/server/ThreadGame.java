@@ -46,12 +46,13 @@ public class ThreadGame implements Callable<Game>
 
         //Insertar celulas inmobiles
 
-        Cell cell = new ImmobileCell();
+
         int posX;
         int posY;
 
         for(int i=0;i<this.numInmobil;i++)
         {
+            Cell cell = new ImmobileCell();
             do
             {
                 posX = random.nextInt(0, tmax);
@@ -64,10 +65,11 @@ public class ThreadGame implements Callable<Game>
 
         //Insertar celulas Mobiles
 
-        cell = new MobileCell();
 
         for(int j=0;j<this.numMobil;j++)
         {
+            Cell cell = new MobileCell();
+
             do
             {
                 posX = random.nextInt(0, tmax);
@@ -80,10 +82,11 @@ public class ThreadGame implements Callable<Game>
 
         //Insertar celulas Reproductoras
 
-        cell = new ReproductiveCell();
 
         for(int k=0;k<this.numReproductive;k++)
         {
+            Cell cell = new ReproductiveCell();
+
             do
             {
                 posX = random.nextInt(0, tmax);

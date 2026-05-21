@@ -20,6 +20,8 @@ public class ThreadGame implements Callable<Game>
     private int numReproductive;
     private Game game;
 
+    private final int N_INSTANTS = 50;
+
     /**
      * Constructor de la clase que genera el numero de celulas de cada tipo a partir de requestData
      * @Param requestData Informacion sobre la peticion a simular
@@ -38,8 +40,7 @@ public class ThreadGame implements Callable<Game>
     public Game call()
     {
         Random random=new Random();
-        int tmax=this.numInmobil+this.numReproductive+this.numMobil;
-
+        int tmax = this.numInmobil+this.numReproductive+this.numMobil;
 
         Board board=new Board(tmax, tmax);
 
@@ -95,8 +96,8 @@ public class ThreadGame implements Callable<Game>
 
         //Creacion del juego, 50 instantes
 
-        int numInstantsGame = 50;
-        this.game = new Game(board, numInstantsGame);
+
+        this.game = new Game(board, N_INSTANTS);
         Board b0;
         Board b1;
 
@@ -105,11 +106,11 @@ public class ThreadGame implements Callable<Game>
         Simulator simulator = new Simulator(simIterator, cellPrioritizer);
 
 
-        for(int ti = 0; ti < numInstantsGame; ti++)
+        for(int ti = 0; ti < N_INSTANTS; ti++)
         {
             b0 = this.game.getBoard(ti);
             b1 = simulator.simulate(b0);
-            if(ti + 1 < numInstantsGame)
+            if(ti + 1 < N_INSTANTS)
             {
                 this.game.addBoard(b1, ti+1);
             }

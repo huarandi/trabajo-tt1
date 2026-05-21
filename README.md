@@ -12,6 +12,8 @@
 
 ## Reglas y modificación de parámetros
 
+> Para una mayor documentación acerca del código, el javadoc del proyecto está en <https://huarandi.github.io/trabajo-tt1>
+
 - El cliente envía el numero de células inmóviles i, móviles m y reproductoras r que necesita.
 
 - El servidor crea un tablero cuadrado de lado t siendo t = i + m + r.
